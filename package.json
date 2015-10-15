@@ -1,6 +1,6 @@
 {
   "name": "lorry",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Gulp configuration for building and deploying AngularJS apps to S3.",
   "main": "./lib/lorry",
   "repository": {
