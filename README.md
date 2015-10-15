@@ -24,6 +24,12 @@ lorry.install('deploy');
 
 # Command-line options
 
+--host/-h
+Development server hostname.
+
+--port/-p
+Development server port number.
+
 --deployment/-d
 Build for deployment. This option is automatically set to true when running the "deploy" task.
 
