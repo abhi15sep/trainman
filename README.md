@@ -14,13 +14,12 @@ var config = {
 
 var options = plugins.minimist(process.argv.slice(2), {});
 
-lorry = require('lorry')(config);
+trainman = require('trainman')(config);
 
-lorry.install('build');
-lorry.install('server');
-lorry.install('deploy');
+trainman.install('build');
+trainman.install('server');
+trainman.install('deploy');
 ```
-
 
 # Command-line options
 
