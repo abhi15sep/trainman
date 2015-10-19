@@ -27,7 +27,7 @@
     "run-sequence": "^1.1.4",
     "sync-exec": "^0.6.2"
   },
-  "author": "Bedrocket Product Team",
+  "author": "Bedrocket Product Team <product-services@bedrocket.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bedrocketjmd/trainman/issues"
