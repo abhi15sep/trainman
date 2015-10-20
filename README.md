@@ -27,6 +27,8 @@ trainman = require('trainman')(config);
 trainman.install('build');
 trainman.install('server');
 trainman.install('deploy');
+
+trainman.setDefault('server');
 ```
 
 # Command-line switches
