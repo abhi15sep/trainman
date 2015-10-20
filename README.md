@@ -31,18 +31,27 @@ trainman.install('deploy');
 
 # Command-line switches
 
+```sh
 --deployment / -d
-Build for deployment (this option is automatically set to true when running the "deploy" task)
+# Build for deployment
+# This option is automatically set to true when running the "deploy" task
+```
 
 # Command-line arguments
 
+```sh
 --code_name / -c
-Property code_name override
+# com.boxxspring.property.code_name meta tag override
+```
 
 The following arguments will override values specified in the config object
 
+```sh
 --host / -h
-Development server hostname
+# Development server hostname
+```
 
+```sh
 --port / -p
-Development server port number
+# Development server port number
+```
