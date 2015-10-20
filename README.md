@@ -1,33 +1,57 @@
-# Required config options
-
-Here's an example.
+# Example usage
 
 ```js
+// Configuration options
 var config = {
+  // Required
+  _package: _package,
   environmentName: environmentName,
   environment: environment,
   manifest: manifest,
-  deployment: deployment,
-  packageName: _package.name,
-  buildVersion: _package.version
+  // Optional, with defaults shown
+  packageName: config._package.name,
+  publicDir: 'public',
+  indexOutputPath: 'index.html',
+  assetOutputPath: 'assets',
+  versionedAssets: true,
+  addSHAToVersion: true,
+  devHost: 'localhost',
+  devPort: 8082,
+  livereload: false
 };
 
-var options = plugins.minimist(process.argv.slice(2), {});
-
+// Initialization
 trainman = require('trainman')(config);
 
+// Installing Gulp task sets
 trainman.install('build');
 trainman.install('server');
 trainman.install('deploy');
 ```
 
-# Command-line options
+# Command-line switches
 
---host/-h
-Development server hostname.
+```sh
+--deployment / -d
+# Build for deployment
+# This option is automatically set to true when running the "deploy" task
+```
 
---port/-p
-Development server port number.
+# Command-line arguments
 
---deployment/-d
-Build for deployment. This option is automatically set to true when running the "deploy" task.
+```sh
+--code_name / -c
+# com.boxxspring.property.code_name meta tag override
+```
+
+The following arguments will override values specified in the config object
+
+```sh
+--host / -h
+# Development server hostname
+```
+
+```sh
+--port / -p
+# Development server port number
+```
