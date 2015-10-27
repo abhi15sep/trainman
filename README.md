@@ -21,7 +21,7 @@ var config = {
 };
 
 // Initialization
-trainman = require('trainman')(config);
+var trainman = require('trainman')(config);
 
 // Installing Gulp task sets
 trainman.install('build');
