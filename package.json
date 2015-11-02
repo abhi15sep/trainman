@@ -1,6 +1,6 @@
 {
   "name": "trainman",
-  "version": "0.2.7",
+  "version": "1.0.0",
   "description": "Gulp configuration for building and deploying AngularJS apps to S3.",
   "main": "./lib/trainman",
   "repository": {
