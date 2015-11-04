@@ -24,6 +24,7 @@
     "merge-stream": "^1.0.0",
     "minimist": "^1.2.0",
     "morgan": "^1.6.1",
+    "open": "0.0.5",
     "run-sequence": "^1.1.4",
     "sync-exec": "^0.6.2"
   },
