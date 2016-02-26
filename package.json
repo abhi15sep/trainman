@@ -28,6 +28,9 @@
     "run-sequence": "^1.1.5",
     "sync-exec": "^0.6.2"
   },
+  "engines": {
+    "node": ">=0.12"
+  },
   "author": "Bedrocket Product Team <product-services@bedrocket.com>",
   "license": "MIT",
   "bugs": {
