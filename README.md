@@ -49,6 +49,11 @@ trainman.setDefault('server');
 The following arguments will override values specified in the config object
 
 ```sh
+--environment / -e
+# Environment to use for build, deploy, and open tasks
+```
+
+```sh
 --host / -h
 # Development server hostname
 ```
