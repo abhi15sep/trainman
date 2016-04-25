@@ -34,7 +34,7 @@ trainman.setDefault('server');
 # Command-line switches
 
 ```sh
---deployment / -d
+--deployment / -D
 # Build for deployment
 # This option is automatically set to true when running the "deploy" task or when NODE_ENV is set to something other than "development"
 ```
@@ -47,6 +47,11 @@ trainman.setDefault('server');
 ```
 
 The following arguments will override values specified in the config object
+
+```sh
+--environment / -e
+# Environment to use for build, deploy, and open tasks
+```
 
 ```sh
 --host / -h
