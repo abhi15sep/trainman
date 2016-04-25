@@ -18,6 +18,7 @@
     "gulp-dedupe": "0.0.2",
     "gulp-insert": "^0.5.0",
     "gulp-load-plugins": "^1.2.4",
+    "gulp-print": "^2.0.1",
     "gulp-s3": "^0.3.0",
     "gulp-sass": "^2.3.1",
     "gulp-template": "^4.0.0",
