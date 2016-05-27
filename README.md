@@ -69,9 +69,9 @@ The following arguments will override values specified in the config object
 
 # Development environment
 
-To use a custom environment for development, create a gitignored file (i.e. "development.json") and pass this filename to gulp as the --environment argument.
+To use a custom environment for development, create a gitignored file (i.e. `development.json`) and pass this filename to gulp as the `--environment` argument.
 
-File-based environments have the special property "base," which specifies that this environment should extend an environment from the environments object with the given name. An example file-based environment is below.
+File-based environments have the special property `base`, which specifies that this environment should extend an environment from the environments object with the given name. An example file-based environment is below.
 
 ```json
 {
