@@ -21,14 +21,15 @@ var config = {
 };
 
 // Initialization
-var trainman = require('trainman')(config);
+var trainman = require( 'trainman' )( config );
 
 // Installing Gulp task sets
-trainman.install('build');
-trainman.install('server');
-trainman.install('deploy');
+trainman.install( 'build' );
+trainman.install( 'server' );
+trainman.install( 'deploy' );
+trainman.install( 'open' );
 
-trainman.setDefault('server');
+trainman.setDefault( 'server' );
 ```
 
 # Command-line switches
