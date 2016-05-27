@@ -6,7 +6,7 @@ var config = {
   // Required
   _package: _package,
   environmentName: environmentName,
-  environment: environment,
+  environments: environments,
   manifest: manifest,
   // Optional, with defaults shown
   packageName: config._package.name,
@@ -17,6 +17,7 @@ var config = {
   addSHAToVersion: true,
   devHost: 'localhost',
   devPort: 8082,
+  theme: undefined,
   livereload: false
 };
 
