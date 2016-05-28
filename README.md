@@ -15,6 +15,7 @@ var config = {
   assetOutputPath: 'assets',
   versionedAssets: true,
   addSHAToVersion: true,
+  cacheTemplates: false,
   devHost: 'localhost',
   devPort: 8082,
   theme: undefined,
