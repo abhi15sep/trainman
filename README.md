@@ -16,6 +16,7 @@ var config = {
   versionedAssets: true,
   addSHAToVersion: true,
   cacheTemplates: false,
+  angularModule: null, // (required when using cacheTemplates)
   devHost: 'localhost',
   devPort: 8082,
   theme: undefined,
