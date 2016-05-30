@@ -15,9 +15,9 @@ var config = {
   assetOutputPath: 'assets',
   versionedAssets: true,
   addSHAToVersion: true,
-  cacheTemplates: false,
-  angularModule: null, // (required when using cacheTemplates)
-  templateAssetOutputPath: assetOutputPath, // assetOutputPath to use in cached templates
+  concatenateTemplates: false,
+  angularModule: null, // (required when using concatenateTemplates)
+  templateAssetOutputPath: assetOutputPath, // assetOutputPath to use in concatenated templates
   devHost: 'localhost',
   devPort: 8082,
   theme: undefined,
