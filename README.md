@@ -17,6 +17,7 @@ var config = {
   addSHAToVersion: true,
   cacheTemplates: false,
   angularModule: null, // (required when using cacheTemplates)
+  templateAssetOutputPath: 'assets', // assetOutputPath to use in cached templates
   devHost: 'localhost',
   devPort: 8082,
   theme: undefined,
