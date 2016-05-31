@@ -6,7 +6,7 @@ var config = {
   // Required
   _package: _package,
   environmentName: environmentName,
-  environment: environment,
+  environments: environments,
   manifest: manifest,
   // Optional, with defaults shown
   packageName: config._package.name,
@@ -15,20 +15,25 @@ var config = {
   assetOutputPath: 'assets',
   versionedAssets: true,
   addSHAToVersion: true,
+  concatenateTemplates: false,
+  angularModule: null, // (required when using concatenateTemplates)
+  templateAssetOutputPath: assetOutputPath, // assetOutputPath to use in concatenated templates
   devHost: 'localhost',
   devPort: 8082,
+  theme: undefined,
   livereload: false
 };
 
 // Initialization
-var trainman = require('trainman')(config);
+var trainman = require( 'trainman' )( config );
 
 // Installing Gulp task sets
-trainman.install('build');
-trainman.install('server');
-trainman.install('deploy');
+trainman.install( 'build' );
+trainman.install( 'server' );
+trainman.install( 'deploy' );
+trainman.install( 'open' );
 
-trainman.setDefault('server');
+trainman.setDefault( 'server' );
 ```
 
 # Command-line switches
@@ -51,6 +56,8 @@ The following arguments will override values specified in the config object
 ```sh
 --environment / -e
 # Environment to use for build, deploy, and open tasks
+# This can be an environment key from the environments object, or the path to a file that contains a complete environment object.
+# For an example, see the "Development environment" section below.
 ```
 
 ```sh
@@ -61,4 +68,27 @@ The following arguments will override values specified in the config object
 ```sh
 --port / -p
 # Development server port number
+```
+
+# Development environment
+
+To use a custom environment for development, create a gitignored file (i.e. `development.json`) and pass this filename to gulp as the `--environment` argument.
+
+File-based environments have the special property `base`, which specifies that this environment should extend an environment from the environments object with the given name. An example file-based environment is below.
+
+```json
+{
+  "base": "production",
+
+  "dependencies": {
+    "javascripts": [
+      "//sdk.boxxspring.com/angularjs-boxxspring-sdk-2.0.10.js",
+      "//localhost:8081/theme-boxxspring-sdk-1.13.0.js"
+    ]
+  },
+
+  "metaTags": {
+    "com.boxxspring.property.code_name": "networka"
+  }
+}
 ```

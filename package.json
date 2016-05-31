@@ -1,6 +1,6 @@
 {
   "name": "trainman",
-  "version": "1.7.3",
+  "version": "1.8.0",
   "description": "Gulp configuration for building and deploying static websites and single-page apps to S3.",
   "main": "./lib/trainman",
   "repository": {
@@ -12,7 +12,8 @@
     "del": "^2.2.0",
     "extend": "^3.0.0",
     "gulp": "^3.9.1",
-    "gulp-clean-css": "^2.0.8",
+    "gulp-angular-templatecache": "^1.8.0",
+    "gulp-clean-css": "^2.0.9",
     "gulp-concat": "^2.6.0",
     "gulp-connect": "^4.0.0",
     "gulp-dedupe": "0.0.2",
