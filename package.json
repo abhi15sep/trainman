@@ -10,8 +10,6 @@
   "dependencies": {
     "connect-history-api-fallback": "^1.2.0",
     "del": "^2.2.0",
-    "ejs": "2.4.2",
-    "express": "4.13.4",
     "extend": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-angular-templatecache": "^1.8.0",
