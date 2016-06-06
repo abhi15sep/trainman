@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/bedrocketjmd/trainman#readme",
   "devDependencies": {
+    "colors": "^1.1.2",
     "connect-history-api-fallback": "^1.2.0",
     "gulp-connect": "^4.0.0",
     "gulp-s3": "^0.3.0",
