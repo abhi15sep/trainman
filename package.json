@@ -8,6 +8,7 @@
     "url": "https://github.com/bedrocketjmd/trainman.git"
   },
   "dependencies": {
+    "chokidar": "^1.5.1",
     "connect-history-api-fallback": "^1.2.0",
     "del": "^2.2.0",
     "extend": "^3.0.0",
