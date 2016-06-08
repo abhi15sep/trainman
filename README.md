@@ -1,4 +1,8 @@
-# Example usage
+# Trainman
+
+![Thomas the Tank Engine](http://stream1.gifsoup.com/view4/1096204/train-man-o.gif)
+
+## Example usage
 
 ```js
 // Configuration options
@@ -36,7 +40,7 @@ trainman.install( 'open' );
 trainman.setDefault( 'server' );
 ```
 
-# Command-line switches
+## Command-line switches
 
 ```sh
 --deployment / -d
@@ -44,7 +48,7 @@ trainman.setDefault( 'server' );
 # This option is automatically set to true when running the "deploy" task or when NODE_ENV is set to something other than "development"
 ```
 
-# Command-line arguments
+## Command-line arguments
 
 ```sh
 --code_name / -c
@@ -70,7 +74,7 @@ The following arguments will override values specified in the config object
 # Development server port number
 ```
 
-# Development environment
+## Development environment
 
 To use a custom environment for development, create a gitignored file (i.e. `development.json`) and pass this filename to gulp as the `--environment` argument.
 
