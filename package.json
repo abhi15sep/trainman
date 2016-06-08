@@ -29,8 +29,7 @@
     "open": "^0.0.5",
     "run-sequence": "^1.2.1",
     "streamqueue": "^1.1.1",
-    "tiny-lr": "^0.2.1",
-    "vinyl-fs": "^2.4.3"
+    "tiny-lr": "^0.2.1"
   },
   "engines": {
     "node": ">=4.0.0"
