@@ -41,8 +41,8 @@ trainman.setDefault( 'server' );
 ## Command-line switches
 
 ```sh
---deployment / -d
-# Build for deployment
+--remote / -r
+# Build for remote execution
 # This option is automatically set to true when running the "deploy" task or when NODE_ENV is set to something other than "development"
 ```
 
