@@ -13,7 +13,6 @@ var config = {
   environments: environments,
   manifest: manifest,
   // Optional, with defaults shown
-  packageName: config._package.name,
   publicDir: 'public',
   indexOutputPath: 'index.html',
   assetOutputPath: 'assets',
