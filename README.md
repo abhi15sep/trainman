@@ -18,7 +18,6 @@ var config = {
   indexOutputPath: 'index.html',
   assetOutputPath: 'assets',
   versionedAssets: true,
-  addSHAToVersion: true,
   concatenateTemplates: false,
   angularModule: null, // (required when using concatenateTemplates)
   templateAssetOutputPath: assetOutputPath, // assetOutputPath to use in concatenated templates
