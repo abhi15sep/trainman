@@ -22,7 +22,6 @@ var config = {
   templateAssetOutputPath: assetOutputPath, // assetOutputPath to use in concatenated templates
   devHost: 'localhost',
   devPort: 8082,
-  theme: undefined,
   livereload: false
 };
 
