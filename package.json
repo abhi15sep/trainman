@@ -27,6 +27,7 @@
     "minimist": "^1.2.0",
     "morgan": "^1.7.0",
     "open": "^0.0.5",
+    "request-promise": "^3.0.0",
     "run-sequence": "^1.2.1",
     "streamqueue": "^1.1.1",
     "tiny-lr": "^0.2.1"
