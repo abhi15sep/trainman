@@ -47,11 +47,6 @@ trainman.setDefaultTask( 'server' );
 
 ## Command-line arguments
 
-```sh
---code_name / -c
-# com.boxxspring.property.code_name meta tag override
-```
-
 The following arguments will override values specified in the config object
 
 ```sh
