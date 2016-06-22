@@ -1,7 +1,7 @@
 {
   "name": "trainman",
   "version": "1.8.0",
-  "description": "Gulp configuration for building and deploying static websites and single-page apps to S3.",
+  "description": "Build and deployment tool for static websites and single-page apps.",
   "main": "./lib/trainman",
   "repository": {
     "type": "git",
