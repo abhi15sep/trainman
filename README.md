@@ -5,14 +5,11 @@
 ## Example usage
 
 ```js
-// Configuration options
+// Configuration options, with default values shown
 var config = {
-  // Required
-  _package: _package,
-  environmentName: environmentName,
-  environments: environments,
-  manifest: manifest,
-  // Optional, with defaults shown
+  _package: require( './package.json' ),
+  environments: require( './environments.json' ),
+  manifest: require( './manifest.json' ),
   publicDir: 'public',
   indexOutputPath: 'index.html',
   assetOutputPath: 'assets',
