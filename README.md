@@ -21,11 +21,57 @@ var config = {
   devPort: 8082,
   livereload: false
 };
+```
 
-// Initialization
-var trainman = require( 'trainman' )( config );
+### Standalone mode
 
-// Installing Gulp tasks
+```js
+// server.js
+
+var express = require( 'express' ),
+    minimist = require( 'minimist' );
+
+var options = minimist( process.argv.slice( 2 ) ),
+    environment = options.environment || options.e || 'staging';
+
+var trainman = require( 'trainman' )( environment );
+
+trainman.build();
+
+if ( !process.env[ 'NODE_ENV' ] || process.env[ 'NODE_ENV' ] === 'development' ) {
+  trainman.watch( true );
+}
+
+var app = express();
+
+app.set( 'port', ( process.env.PORT || trainman.config.devPort ) );
+
+app.use( '/assets', express.static( path.join( __dirname, trainman.config.publicDir, trainman.config.assetOutputPath ), {
+  fallthrough: false
+} ) );
+
+app.get( '*', function( request, response ) {
+  response.render( trainman.config.indexOutputPath, trainman.locals() );
+} );
+
+app.listen( app.get( 'port' ), function() {
+  console.log( 'Node app is running on port', app.get( 'port' ) );
+} );
+
+```
+
+### Gulp mode
+
+```js
+// gulpfile.js
+
+var minimist = require( 'minimist' );
+
+var options = minimist( process.argv.slice( 2 ) ),
+    environment = options.environment || options.e || 'staging';
+
+var trainman = require( 'trainman' )( environment, config );
+
 trainman.installTask( 'build' );
 trainman.installTask( 'server' );
 trainman.installTask( 'deploy' );
