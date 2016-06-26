@@ -13,6 +13,7 @@ Creates a new instance of Trainman.
 The name of the environment to use for building. Trainman will look for an environment with this name in `environments`.
 
 Type: `String`  
+Required: no  
 Default value: `process.env[ 'NODE_ENV' ]`
 
 ##### `projectConfig`
@@ -20,6 +21,7 @@ Default value: `process.env[ 'NODE_ENV' ]`
 The configuration object for your project, which will be merged with the default configuration.
 
 Type: `Object`  
+Required: no  
 Default value: `{}`
 
 ### `trainman.config`
@@ -42,6 +44,7 @@ Returns an object with the following keys:
 Any additional key/value pairs to merge into the above object.
 
 Type: `Object`  
+Required: no  
 Default value: `{}`
 
 ##### `codeName`
@@ -49,6 +52,7 @@ Default value: `{}`
 The value of the `com.boxxspring.property.code_name` meta tag, if meta tags are being used.
 
 Type: `String`  
+Required: no  
 Default value: `undefined`
 
 ### `trainman.build()`
@@ -64,6 +68,7 @@ Watches all files described in `manifest` for changes, and rebuilds changed asse
 Whether or not to start a [LiveReload](http://livereload.com/) server on port 35729.
 
 Type: `Boolean`  
+Required: no  
 Default value: `false`
 
 ### `trainman.installTask( taskName )`
@@ -82,7 +87,7 @@ Sets up a [Gulp](https://github.com/gulpjs/gulp) task. The available tasks are a
 The name of the task being installed.
 
 Type: `String`  
-Default value: `undefined`
+Required: yes  
 
 ### `trainman.setDefaultTask( taskName )`
 
@@ -93,7 +98,7 @@ Sets one of the installed Gulp tasks as the default (i.e., the task that will be
 The name of the task being set as default.
 
 Type: `String`  
-Default value: `undefined`
+Required: yes  
 
 ## Example usage
 
