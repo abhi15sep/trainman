@@ -13,8 +13,9 @@ Creates a new instance of Trainman.
 The name of the environment to use for building. Trainman will look for an environment with this name in `environments`.
 
 Type: `String`  
-Required: no  
-Default value: `process.env[ 'NODE_ENV' ]`
+Required: yes
+
+Note: If it's available, Trainman will use `process.env[ 'NODE_ENV' ]` instead of the provided value.
 
 ##### `projectConfig`
 
