@@ -1,55 +1,195 @@
-# Example usage
+# Trainman
+
+![Thomas the Tank Engine](http://stream1.gifsoup.com/view4/1096204/train-man-o.gif)
+
+## API
+
+### `trainman( environment, projectConfig )`
+
+Creates a new instance of Trainman.
+
+##### `environment`
+
+The name of the environment to use for building. Trainman will look for an environment with this name in `environments`.
+
+Type: `String`  
+Required: yes
+
+Note: If it's available, Trainman will use `process.env[ 'NODE_ENV' ]` instead of the provided value.
+
+##### `projectConfig`
+
+The configuration object for your project, which will be merged with the default configuration.
+
+Type: `Object`  
+Required: no  
+Default value: `{}`
+
+### `trainman.config`
+
+Returns the complete configuration object - `projectConfig` merged with the default configuration.
+
+### `trainman.locals( projectLocals, codeName )`
+
+Returns an object with the following keys:
 
 ```js
-// Configuration options
+* stylesheetUrls
+* javascriptUrls
+* metaTags
+* buildSignature // (except in standalone mode)
+```
+
+##### `projectLocals`
+
+Any additional key/value pairs to merge into the above object.
+
+Type: `Object`  
+Required: no  
+Default value: `{}`
+
+##### `codeName`
+
+The value of the `com.boxxspring.property.code_name` meta tag, if meta tags are being used.
+
+Type: `String`  
+Required: no  
+Default value: `undefined`
+
+### `trainman.build()`
+
+Builds all assets as described in `manifest`.
+
+### `trainman.watch( liveReload )`
+
+Watches all files described in `manifest` for changes, and rebuilds changed assets.
+
+##### `liveReload`
+
+Whether or not to start a [LiveReload](http://livereload.com/) server on port 35729.
+
+Type: `Boolean`  
+Required: no  
+Default value: `false`
+
+### `trainman.installTask( taskName )`
+
+Sets up a [Gulp](https://github.com/gulpjs/gulp) task. The available tasks are as follows:
+
+```js
+* build // build the project - equivalent to trainman.build()
+* server // start a local server and watch for changes
+* deploy // deploy to bucket specified in environment.deploy
+* open // open browser to URL specified in environment.root
+```
+
+##### `taskName`
+
+The name of the task being installed.
+
+Type: `String`  
+Required: yes  
+
+### `trainman.setDefaultTask( taskName )`
+
+Sets one of the installed Gulp tasks as the default (i.e., the task that will be executed when you simply run `gulp`).
+
+##### `taskName`
+
+The name of the task being set as default.
+
+Type: `String`  
+Required: yes  
+
+## Configuration options
+
+```js
+// Default values shown
 var config = {
-  // Required
-  _package: _package,
-  environmentName: environmentName,
-  environments: environments,
-  manifest: manifest,
-  // Optional, with defaults shown
-  packageName: config._package.name,
+  _package: require( './package.json' ),
+  environments: require( './environments.json' ),
+  manifest: require( './manifest.json' ),
   publicDir: 'public',
   indexOutputPath: 'index.html',
   assetOutputPath: 'assets',
   versionedAssets: true,
-  addSHAToVersion: true,
   concatenateTemplates: false,
-  angularModule: null, // (required when using concatenateTemplates)
+  angularModule: undefined, // (required when using concatenateTemplates)
   templateAssetOutputPath: assetOutputPath, // assetOutputPath to use in concatenated templates
   devHost: 'localhost',
   devPort: 8082,
-  theme: undefined,
   livereload: false
 };
-
-// Initialization
-var trainman = require( 'trainman' )( config );
-
-// Installing Gulp task sets
-trainman.install( 'build' );
-trainman.install( 'server' );
-trainman.install( 'deploy' );
-trainman.install( 'open' );
-
-trainman.setDefault( 'server' );
 ```
 
-# Command-line switches
+## Example usage
+
+### Standalone mode
+
+```js
+// server.js
+
+var express = require( 'express' ),
+    minimist = require( 'minimist' );
+
+var options = minimist( process.argv.slice( 2 ) ),
+    environment = options.environment || options.e || 'staging';
+
+var trainman = require( 'trainman' )( environment );
+
+trainman.build();
+
+if ( !process.env[ 'NODE_ENV' ] || process.env[ 'NODE_ENV' ] === 'development' ) {
+  trainman.watch( true );
+}
+
+var app = express();
+
+app.set( 'port', ( process.env.PORT || trainman.config.devPort ) );
+
+app.use( '/assets', express.static( path.join( __dirname, trainman.config.publicDir, trainman.config.assetOutputPath ), {
+  fallthrough: false
+} ) );
+
+app.get( '*', function( request, response ) {
+  response.render( trainman.config.indexOutputPath, trainman.locals() );
+} );
+
+app.listen( app.get( 'port' ), function() {
+  console.log( 'Node app is running on port', app.get( 'port' ) );
+} );
+
+```
+
+### Gulp mode
+
+```js
+// gulpfile.js
+
+var minimist = require( 'minimist' );
+
+var options = minimist( process.argv.slice( 2 ) ),
+    environment = options.environment || options.e || 'staging';
+
+var trainman = require( 'trainman' )( environment, config );
+
+trainman.installTask( 'build' );
+trainman.installTask( 'server' );
+trainman.installTask( 'deploy' );
+trainman.installTask( 'open' );
+
+trainman.setDefaultTask( 'server' );
+```
+
+## Command-line switches
 
 ```sh
---deployment / -d
-# Build for deployment
+--remote / -r
+# Build for remote execution
 # This option is automatically set to true when running the "deploy" task or when NODE_ENV is set to something other than "development"
 ```
 
-# Command-line arguments
-
-```sh
---code_name / -c
-# com.boxxspring.property.code_name meta tag override
-```
+## Command-line arguments
 
 The following arguments will override values specified in the config object
 
@@ -70,7 +210,7 @@ The following arguments will override values specified in the config object
 # Development server port number
 ```
 
-# Development environment
+## Development environment
 
 To use a custom environment for development, create a gitignored file (i.e. `development.json`) and pass this filename to gulp as the `--environment` argument.
 
