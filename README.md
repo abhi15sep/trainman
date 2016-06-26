@@ -101,10 +101,10 @@ The name of the task being set as default.
 Type: `String`  
 Required: yes  
 
-## Example usage
+## Configuration options
 
 ```js
-// Configuration options, with default values shown
+// Default values shown
 var config = {
   _package: require( './package.json' ),
   environments: require( './environments.json' ),
@@ -121,6 +121,8 @@ var config = {
   livereload: false
 };
 ```
+
+## Example usage
 
 ### Standalone mode
 
