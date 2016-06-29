@@ -113,6 +113,7 @@ var config = {
   indexOutputPath: 'index.html',
   assetOutputPath: 'assets',
   versionedAssets: true,
+  addSHAToVersion: true,
   setStrictMode: true,
   concatenateTemplates: false,
   angularModule: undefined, // (required when using concatenateTemplates)

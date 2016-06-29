@@ -1,6 +1,6 @@
 {
   "name": "trainman",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Build and deployment tool for static websites and single-page apps.",
   "main": "./lib/trainman",
   "repository": {
