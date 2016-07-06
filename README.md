@@ -154,7 +154,7 @@ app.use( '/assets', express.static( path.join( __dirname, trainman.config.public
 } ) );
 
 app.get( '*', function( request, response ) {
-  response.render( trainman.config.indexOutputPath, trainman.locals() );
+  response.render( 'index.html', trainman.locals() );
 } );
 
 app.listen( app.get( 'port' ), function() {
