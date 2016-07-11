@@ -15,7 +15,7 @@ The name of the environment to use for building. Trainman will look for an envir
 Type: `String`  
 Required: yes
 
-Note: If it's available, Trainman will use `process.env[ 'NODE_ENV' ]` instead of the provided value.
+Note: If it's available, Trainman will use `process.env.NODE_ENV` instead of the provided value.
 
 ##### `projectConfig`
 
@@ -114,6 +114,7 @@ var config = {
   assetOutputPath: 'assets',
   versionedAssets: true,
   addSHAToVersion: true,
+  setStrictMode: true,
   concatenateTemplates: false,
   angularModule: undefined, // (required when using concatenateTemplates)
   templateAssetOutputPath: assetOutputPath, // assetOutputPath to use in concatenated templates
@@ -140,7 +141,7 @@ var trainman = require( 'trainman' )( environment );
 
 trainman.build();
 
-if ( !process.env[ 'NODE_ENV' ] || process.env[ 'NODE_ENV' ] === 'development' ) {
+if ( !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ) {
   trainman.watch( true );
 }
 
@@ -153,7 +154,7 @@ app.use( '/assets', express.static( path.join( __dirname, trainman.config.public
 } ) );
 
 app.get( '*', function( request, response ) {
-  response.render( trainman.config.indexOutputPath, trainman.locals() );
+  response.render( 'index.html', trainman.locals() );
 } );
 
 app.listen( app.get( 'port' ), function() {
