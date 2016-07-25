@@ -29,7 +29,7 @@ Default value: `{}`
 
 Returns the complete configuration object - `projectConfig` merged with the default configuration.
 
-### `trainman.locals( projectLocals, codeName )`
+### `trainman.locals( metaTagOverrides )`
 
 Returns an object with the following keys:
 
@@ -40,21 +40,13 @@ Returns an object with the following keys:
 * buildSignature // (except in standalone mode)
 ```
 
-##### `projectLocals`
+##### `metaTagOverrides`
 
-Any additional key/value pairs to merge into the above object.
+Any additional key/value pairs to merge into the existing metaTags object.
 
 Type: `Object`  
 Required: no  
 Default value: `{}`
-
-##### `codeName`
-
-The value of the `com.boxxspring.property.code_name` meta tag, if meta tags are being used.
-
-Type: `String`  
-Required: no  
-Default value: `undefined`
 
 ### `trainman.build()`
 
@@ -234,3 +226,7 @@ File-based environments have the special property `base`, which specifies that t
   }
 }
 ```
+
+## Notes
+
+Trainman is designed to work with the [Source Version Buildpack](https://elements.heroku.com/buildpacks/ianpurvis/heroku-buildpack-version) for Heroku, or a similar buildpack that sets the `SOURCE_VERSION` environment variable in `profile.d`. This value is used to build asset paths that include a query string for cache busting.
