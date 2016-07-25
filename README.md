@@ -226,3 +226,7 @@ File-based environments have the special property `base`, which specifies that t
   }
 }
 ```
+
+## Notes
+
+Trainman is designed to work with the [Source Version Buildpack](https://elements.heroku.com/buildpacks/ianpurvis/heroku-buildpack-version) for Heroku, or a similar buildpack that sets the `SOURCE_VERSION` environment variable in `profile.d`. This value is used to build asset paths that include a query string for cache busting.
