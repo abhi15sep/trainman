@@ -1,6 +1,6 @@
 {
   "name": "trainman",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Build and deployment tool for static websites and single-page apps.",
   "main": "./lib/trainman",
   "repository": {
@@ -14,7 +14,7 @@
     "extend": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-angular-templatecache": "^2.0.0",
-    "gulp-clean-css": "^2.0.12",
+    "gulp-clean-css": "^2.0.13",
     "gulp-concat": "^2.6.0",
     "gulp-connect": "^5.0.0",
     "gulp-dedupe": "0.0.2",
@@ -29,7 +29,7 @@
     "open": "^0.0.5",
     "run-sequence": "^1.2.2",
     "streamqueue": "^1.1.1",
-    "tiny-lr": "^0.2.1"
+    "tiny-lr": "^1.0.3"
   },
   "engines": {
     "node": ">=5.0.0"
