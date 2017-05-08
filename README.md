@@ -1,6 +1,6 @@
 # Trainman
 
-![Thomas the Tank Engine](http://stream1.gifsoup.com/view4/1096204/train-man-o.gif)
+![Thomas the Tank Engine](https://media4.giphy.com/media/NneRkDas81Beg/200.gif)
 
 ## API
 
