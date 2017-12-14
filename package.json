@@ -1,6 +1,6 @@
 {
   "name": "trainman",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "Build and deployment tool for static websites and single-page apps.",
   "main": "./lib/trainman",
   "repository": {
@@ -28,7 +28,7 @@
     "morgan": "^1.7.0",
     "open": "^0.0.5",
     "run-sequence": "^1.2.2",
-    "streamqueue": "^1.1.1",
+    "streamqueue": "1.1.1",
     "tiny-lr": "^1.0.3"
   },
   "engines": {
